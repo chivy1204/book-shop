@@ -29,7 +29,7 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Hello");
     return MaterialApp(
-        title: "Hello World",
+        title: "Nguyen Chi Vy",
         home: Scaffold(
           appBar: AppBar(
             title: Text("Shopping"),
@@ -46,7 +46,7 @@ class Load extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Hello");
     return MaterialApp(
-        title: "Hello world",
+        title: "Nguyen Chi Vy",
         home: Scaffold(
           appBar: AppBar(
             title: Text("Shopping"),
