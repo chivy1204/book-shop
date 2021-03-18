@@ -32,10 +32,10 @@ class Result extends StatelessWidget {
         title: "Hello World",
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Book Shop"),
+            title: Text("Shopping"),
           ),
           body: Center(
-            child: Text("List Book"),
+            child: Text("Books"),
           ),
         ));
   }
@@ -49,7 +49,7 @@ class Load extends StatelessWidget {
         title: "Hello world",
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Book Shop"),
+            title: Text("Shopping"),
           ),
           body: Center(
             child: Text("Loading"),
