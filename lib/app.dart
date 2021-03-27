@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class App extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
+    print(kIsWeb);
     return FutureBuilder(
       future: _initialization,
       builder: (context, snapshot) {
@@ -14,8 +17,22 @@ class App extends StatelessWidget {
           return Result();
         }
         if (snapshot.connectionState == ConnectionState.done) {
-          print("My app");
-          return Result();
+          GoogleAuthProvider googleProvider = GoogleAuthProvider();
+          googleProvider
+              .addScope('https://www.googleapis.com/auth/contacts.readonly');
+          googleProvider
+              .setCustomParameters({'login_hint': 'user@example.com'});
+          Future<UserCredential> signInWithGoogle() async {
+            GoogleAuthProvider googleProvider = GoogleAuthProvider();
+
+            googleProvider
+                .addScope('https://www.googleapis.com/auth/contacts.readonly');
+            googleProvider
+                .setCustomParameters({'login_hint': 'user@example.com'});
+            return await FirebaseAuth.instance.signInWithPopup(googleProvider);
+          }
+
+          print(signInWithGoogle());
         }
         print("Loading");
         return Result();
